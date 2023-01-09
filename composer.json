@@ -1,0 +1,16 @@
+{
+    "name": "mohamed-mennour/smsmvcphp2",
+    "autoload": {
+        "psr-4": {
+            "smsmvcphp2\\": "src/",
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mohamed Mennour",
+            "email": "mohamedmennour25@gmail.com"
+        }
+    ],
+    "require": {}
+}
