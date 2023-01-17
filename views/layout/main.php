@@ -1,13 +1,6 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>MVC</title>
-        <link rel="stylesheet" type="text/css" href="http://localhost/smsmvcphp2/public/assets/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="http://localhost/smsmvcphp2/public/assets/all.min.css">
-    </head>
-        <body>
-            <div class="container">
-                {{content}}
-            </div>
-        </body>
-</html>
+<?php require_once __DIR__ . "/../partials/header.php"; ?>
+<?php require_once __DIR__ . "/../partials/navbar.php"; ?>
+<div class="container-fluid ">
+     {{content}}
+</div>
+<?php require_once __DIR__ . "/../partials/footer.php"; ?>
