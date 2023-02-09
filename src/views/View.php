@@ -6,9 +6,15 @@ class View
 {
     public static function make($view, $params = [])
     {
-        $baseContent = self::getBaseContent();
+        /*$baseContent = self::getBaseContent();
         $viewContent = self::getViewContent($view, $params);
-        echo str_replace('{{content}}', $viewContent, $baseContent);
+        echo str_replace('{{content}}', $viewContent, $baseContent);*/
+        extract($params);
+        if (file_exists(__DIR__ . "/../../views/" . $view . ".php")) {
+            require (__DIR__ . "/../../views/" . $view . ".php") ;
+        } else {
+            require (__DIR__ . "/../../views/errors/404.php");
+        }
     }
 
     protected static function getBaseContent()
@@ -23,6 +29,7 @@ class View
         foreach($params as $param => $value) {
             $$param = $value;
         }
+        //extract($params);
         if ($isError) {
             include __DIR__ . "/../../views/errors/404.php";
         } else {
@@ -34,7 +41,8 @@ class View
 
     public static function makeError($error)
     {
-        View::getViewContent($error, true);
+        //View::getViewContent($error, true);
+        require (__DIR__ . "/../../views/errors/" . $error . ".php");
     }
 
 }

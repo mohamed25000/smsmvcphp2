@@ -1,4 +1,15 @@
+<?php
+
+use App\models\Auth;
+
+?>
 <style>
+    nav ul li a{
+        width: 100px;
+        text-align: center;
+        border-left: solid thin #eee;
+        border-right: solid thick #fff;
+    }
     nav ul li a:hover{
         background-color: grey;
         color: white !important;
@@ -18,10 +29,10 @@
                 <a class="nav-link active" href="http://localhost/smsmvcphp2/public">DASHBOARD</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/smsmvcphp2/public/users">USERS</a>
+                <a class="nav-link" href="http://localhost/smsmvcphp2/public/users">STAFF</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/smsmvcphp2/public/classes">CLASSES</a>
+                <a class="nav-link" href="http://localhost/smsmvcphp2/public/schools">SCHOOLS</a>
             </li>
 
             <li class="nav-item">
@@ -39,10 +50,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost/smsmvcphp2/public/logout">Logout</a>
             </li>
-
-            <li class="nav-item dropdown">
+        </ul>
+        <ul class="navbar nav mx-auto">
+            <li class="nav-item dropdown dropdown-menu-end">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    USER
+                    <?= Auth::getFirstname(); ?>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Profile</a>

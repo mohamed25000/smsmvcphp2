@@ -11,8 +11,7 @@ class Request
 
     public function path(): string
     {
-        $path = $this->getURL()[0];
-
+        $path = $this->getURL();
         return str_contains($path,'?') ? explode('?', $path)[0] : $path;
         //return $path;
 
@@ -21,7 +20,7 @@ class Request
     private function getURL()
     {
         $url = $_GET['url'] ?? "home";
-        return explode("/", filter_var(trim($url,"/")),FILTER_SANITIZE_URL);
+        return  filter_var(trim($url,"/"),FILTER_SANITIZE_URL);
     }
 
     public function getParams()

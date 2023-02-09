@@ -1,0 +1,1 @@
+<h1>Edit school</h1>

@@ -3,7 +3,9 @@
 use Dotenv\Dotenv;
 use smsmvcphp2\Application;
 
-require_once __DIR__ . "/../src/support/Helpers.php";
+session_start();
+
+require_once __DIR__ . "/../src/support/helpers.php";
 require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/../routes/web.php";
 
@@ -12,3 +14,5 @@ $env->load();
 
 $app = new Application();
 $app->run();
+
+

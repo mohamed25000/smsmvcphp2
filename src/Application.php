@@ -8,7 +8,6 @@ use smsmvcphp2\database\managers\MySQLManager;
 use smsmvcphp2\http\Request;
 use smsmvcphp2\http\Response;
 use smsmvcphp2\http\Router;
-use smsmvcphp2\support\helpers;
 
 class Application
 {

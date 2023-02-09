@@ -23,7 +23,7 @@ class Database
     }
 
 
-    public function query($query,$data = array(),$data_type = "object")
+    protected function query($query,$data = array(),$data_type = "object")
     {
 
         $con = $this->init();
@@ -46,9 +46,36 @@ class Database
         return false;
     }
 
-    protected function create(array $data)
+    protected function create(array $data, $table)
     {
-        return $this->manager->create($data);
+        return $this->manager->create($data, $table);
+    }
+
+    public function update($id, array $attributes)
+    {
+        return $this->manager->update($id, $attributes);
+    }
+
+    protected function delete($id)
+    {
+        return $this->manager->delete($id);
+    }
+
+    protected function read($columns, $table, $filter = null)
+    {
+        return $this->manager->read($columns, $table, $filter);
+    }
+
+    protected function raw($query, $value = [])
+    {
+        return $this->manager->query($query, $value);
+    }
+
+    public function __call(string $name, array $arguments)
+    {
+        if(method_exists($this, $name)) {
+            return call_user_func_array([$this, $name], $arguments);
+        }
     }
 
 }
